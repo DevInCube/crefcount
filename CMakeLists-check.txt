@@ -1,0 +1,11 @@
+cmake_minimum_required(VERSION 2.8.9)
+
+project(a.out)
+include_directories(include)
+file(GLOB SOURCES "src/*.c")
+add_executable(${PROJECT_NAME} main.c ${SOURCES})
+#----------------------------------------------------------------
+project(test.out)
+file(GLOB TEST_SOURCES "tests/*.c")
+add_executable(${PROJECT_NAME} ${TEST_SOURCES} ${SOURCES})
+target_link_libraries(${PROJECT_NAME} check subunit m rt pthread)
